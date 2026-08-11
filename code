@@ -31,52 +31,61 @@ double menu() {
 
     int tamanho = 3;
 
-    cout << "\n--- MENU DE DOCES ---\n";
-
-    for (int i = 0; i < tamanho; i++) {
-        cout << i + 1 << ". "
-             << catalogo[i].doce
-             << " - R$ "
-             << catalogo[i].preco
-             << "\n";
-    }
-
-    cout << "Escolha um doce e adoce o seu dia!\n";
-
-    int escolha;
     double total = 0;
+    char continuar = 's';
 
-    cin >> escolha;
+    while (continuar == 's' || continuar == 'S') {
 
-    if (escolha == 1) {
+        cout << "\n--- MENU DE DOCES ---\n";
 
-        cout << "Ótima escolha! Palha Italiana é o doce perfeito para amantes do meio-termo. Nem muito doce, nem muito sem graça.\n";
+        for (int i = 0; i < tamanho; i++) {
+            cout << i + 1 << ". "
+                 << catalogo[i].doce
+                 << " - R$ "
+                 << catalogo[i].preco
+                 << "\n";
+        }
 
-        cout << "O preço da palha é R$ 8.00!\n";
+        cout << "Escolha um doce e adoce o seu dia!\n";
 
-        total = catalogo[0].preco;
-    }
+        int escolha;
 
-    else if (escolha == 2) {
+        cin >> escolha;
 
-        cout << "Huuum... Brownie é bom a qualquer hora!\n";
+        if (escolha == 1) {
 
-        cout << "O preço do brownie é R$ 10.00!\n";
+            cout << "Ótima escolha! Palha Italiana é o doce perfeito para amantes do meio-termo. Nem muito doce, nem muito sem graça.\n";
 
-        total = catalogo[1].preco;
-    }
+            cout << "O preço da palha é R$ 8.00!\n";
 
-    else if (escolha == 3) {
+            total = total + catalogo[0].preco;
+        }
 
-        cout << "Brigadeiro é BOM DEMAIS!\n";
+        else if (escolha == 2) {
 
-        cout << "O preço do brigadeiro é R$ 4.00!\n";
+            cout << "Huuum... Brownie é bom a qualquer hora!\n";
 
-        total = catalogo[2].preco;
-    }
+            cout << "O preço do brownie é R$ 10.00!\n";
 
-    else {
-        cout << "Opção inválida!\n";
+            total = total + catalogo[1].preco;
+        }
+
+        else if (escolha == 3) {
+
+            cout << "Brigadeiro é BOM DEMAIS!\n";
+
+            cout << "O preço do brigadeiro é R$ 4.00!\n";
+
+            total = total + catalogo[2].preco;
+        }
+
+        else {
+            cout << "Opção inválida!\n";
+        }
+
+        cout << "\nDeseja comprar mais algum doce? (s/n)\n";
+
+        cin >> continuar;
     }
 
     return total;
